@@ -58,6 +58,12 @@ get_header(); // Inclut l'en-tête de votre thème
         <?php ;
         the_field('description_4');
         ?>
+      
+      <div class="div_button">
+        <button>
+          <a href="<?php the_field('url_projet'); ?>" class="btn2"><span class="spn2">Voir le projet</span></a>
+        </button>
+      </div>
 
 
     </main><!-- #main -->
@@ -110,6 +116,7 @@ get_footer(); // Inclut le pied de page de votre thème
     margin-bottom: 14vh;
     color: #FFFFFF;
     font-size: 1.2em;
+    text-align: justify;
   }
 
 
@@ -142,6 +149,75 @@ get_footer(); // Inclut le pied de page de votre thème
     .entry-content {
         margin-left: 2vh;
     }
+
+    .btn2 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fefefe;
+  text-transform: uppercase;
+  color: #fefefe;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.btn2::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - -2px);
+  background-color: #475569;;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 50px);
+  background-color: #212121;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2:hover::before {
+  transform: translateY(-25px);
+  height: 0;
+}
+
+.btn2:hover::after {
+  transform: scaleX(0);
+  transition-delay: 0.15s;
+}
+
+.btn2:hover {
+  border: 2px solid #fefefe;
+}
+
+.btn2 span {
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.div_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 4vh;
+}
 
     @media (max-width: 768px) {
   .ma-banniere {
@@ -185,6 +261,8 @@ get_footer(); // Inclut le pied de page de votre thème
 	body {
     font-family: 'Roboto', sans-serif;
 }
+
+    }
 
 </style>
 

@@ -13,10 +13,11 @@
     <header>
       <div class="header-top">
         <div class="logo">
-          <a href="<?php echo home_url(); ?>">
-            <img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Logo">
+          <a href="<?php echo esc_url( home_url() ); ?>">
+              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.png" alt="Logo">
           </a>
         </div>
+
         <div class="menu">
           <?php wp_nav_menu(
             array(

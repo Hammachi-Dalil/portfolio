@@ -25,6 +25,7 @@ endif;
  ?>
 
     <!-- Contenu principal -->
+    <h1 class="titre_competence"> Mes Compétences </h1>
 
     <div class="wrapper">
         <div class="container">
@@ -62,6 +63,17 @@ endif;
         </div>
     </div>
 
+    <div class="div_button">
+    
+        <button>
+            <a href="/portefolio/wp-content/themes/portfolio/cv/CV_Dalil_Hammachi.pdf" class="btn2" download="CV_Dalil_Hammachi.pdf">
+            <span class="spn2">Mon CV</span>
+            </a>
+        </button>
+    
+</div>
+
+
     </body>
 
     <!-- Inclure ici vos scripts JavaScript, liens vers les fichiers JS, etc. -->
@@ -72,6 +84,12 @@ endif;
 </html>
 
 <style>
+
+    .titre_competence {
+        color: white;
+        margin-left: 15%;
+    }
+
     .wrapper {
     width: 100%;
     display: flex;
@@ -161,13 +179,82 @@ input:checked + label .description {
 }
 
 .card[for="c1"] {
-    background-image: url('<?php echo get_template_directory_uri(); ?>/img/dev.png');
+    background-image: url('<?php echo get_template_directory_uri(); ?>/img/dev_competence.png');
 }
 .card[for="c2"] {
-    background-image: url('<?php echo get_template_directory_uri(); ?>/img/design.png');
+    background-image: url('<?php echo get_template_directory_uri(); ?>/img/design_competence.png');
 }
 .card[for="c3"] {
-    background-image: url('<?php echo get_template_directory_uri(); ?>/img/communiquant.png');
+    background-image: url('<?php echo get_template_directory_uri(); ?>/img/com_competence.png');
+}
+
+.btn2 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fefefe;
+  text-transform: uppercase;
+  color: #fefefe;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.btn2::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - -2px);
+  background-color: #475569;;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 50px);
+  background-color: #212121;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2:hover::before {
+  transform: translateY(-25px);
+  height: 0;
+}
+
+.btn2:hover::after {
+  transform: scaleX(0);
+  transition-delay: 0.15s;
+}
+
+.btn2:hover {
+  border: 2px solid #fefefe;
+}
+
+.btn2 span {
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.div_button {
+  display: flex;
+  justify-content: center;
+  margin: 4vh;
 }
 
 /* Styles existants... */

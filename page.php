@@ -41,4 +41,8 @@ get_footer();
 	body {
     font-family: 'Roboto', sans-serif;
 }
+
+.entry-content {
+	margin: 0;
+}
 </style>

@@ -1,60 +1,150 @@
 <?php
 /**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package portfolio
+ * Le modèle pour afficher les pages d'erreur 404 (Non trouvé)
  */
 
-get_header();
+get_header(); // Inclut le fichier header.php
 ?>
 
-	<main id="primary" class="site-main">
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'portfolio' ); ?></h1>
-			</header><!-- .page-header -->
+        <section class="error-404 not-found">
+            
+                <h1 class="page-title"><?php esc_html_e( 'Désolé, cette page n’existe pas.', 'text-domaine-de-votre-theme' ); ?></h1>
+           
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'portfolio' ); ?></p>
+            <div class="page-content">
+                <p class="text-404"><?php esc_html_e( 'Il semble que rien n’a été trouvé à cet emplacement. Peut-être essayer une recherche ou l’un des liens ci-dessous ?', 'text-domaine-de-votre-theme' ); ?></p>
 
-					<?php
-					get_search_form();
+			<button>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn2" >
+				<span class="spn2">Page d'Accueil</span>
+            </a>
+        </button>            </div><!-- .page-content -->
+        </section><!-- .error-404 -->
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+    </main><!-- #main -->
+</div><!-- #primary -->
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'portfolio' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+<style>
 
-					<?php
-					/* translators: %1$s: smiley */
-					$portfolio_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'portfolio' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$portfolio_archive_content" );
+	html, body {
+    height: 100%;
+    margin: 0;
+}
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
+#primary {
+    min-height: 100vh; /* Utilisez min-height pour que le contenu s'étende au-delà de la hauteur de la fenêtre si nécessaire */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
 
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
 
-	</main><!-- #main -->
+
+.button-404 {
+    background-color: #007bff; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Bordures arrondies */
+    text-decoration: none; /* Supprime le soulignement du lien */
+    font-weight: bold; /* Met le texte en gras */
+    transition: background-color 0.3s; /* Animation de fond */
+}
+
+.button-404:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+.page-title {
+	color: White;
+}
+
+.text-404 {
+	text-align: center;
+}
+
+.page-content {
+	display: flex;
+    flex-direction: column;
+}
+
+.error-404 {
+
+}
+
+.btn2 {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fefefe;
+  text-transform: uppercase;
+  color: #fefefe;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.btn2::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - -2px);
+  background-color: #475569;;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 50px);
+  background-color: #212121;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2:hover::before {
+  transform: translateY(-25px);
+  height: 0;
+}
+
+.btn2:hover::after {
+  transform: scaleX(0);
+  transition-delay: 0.15s;
+}
+
+.btn2:hover {
+  border: 2px solid #fefefe;
+}
+
+.btn2 span {
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.div_button {
+  display: flex;
+  justify-content: center;
+  margin: 4vh;
+}
+</style>
 
 <?php
-get_footer();
+get_footer(); // Inclut le fichier footer.php
+?>
